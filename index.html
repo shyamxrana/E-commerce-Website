@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ShopLite</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head> 
+  <body>
+  <header class="header">
+    <button id="menuToggle" class="menu-btn" aria-label="Open menu">☰</button>
+    <div class="brand">ShopLite</div>
+    <nav class="nav">
+      <a href="#hero">New</a>
+      <a href="#featured">Featured</a>
+      <a href="#productGrid">Shop</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="actions">
+      <input id="search" class="search" type="search" placeholder="Search products" aria-label="Search" />
+      <button id="cartToggle" class="cart-btn" aria-label="Open cart">
+        <span>Cart</span>
+        <span id="cartCount" class="badge">0</span>
+      </button>
+    </div>
+    <div id="navPanel" class="nav-panel" aria-hidden="true">
+      <div class="nav-panel-header">
+        <div class="brand">ShopLite</div>
+        <button id="navClose" class="icon-btn" aria-label="Close menu">✕</button>
+      </div>
+      <div class="nav-panel-links">
+        <a href="#hero">New</a>
+        <a href="#featured">Featured</a>
+        <a href="#productGrid">Shop</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </header>
+
+    <main class="container">
+    <section id="hero" class="hero hero-full">
+      <div class="hero-content">
+        <h1>Designed for performance</h1>
+        <p class="lead">Minimal essentials for everyday life.</p>
+        <div class="cta">
+          <a href="#productGrid" class="primary">Shop now</a>
+          <a href="#about" class="btn">Learn more</a>
+        </div>
+      </div>
+    </section>
+      <section id="featured" class="featured"></section>
+      <section class="filters">
+        <select id="category" class="select">
+          <option value="all">All Categories</option>
+        </select>
+        <select id="sort" class="select">
+          <option value="popular">Popular</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+        </select>
+      </section>  
+      <h2 class="section-title ">All Products</h2>
+      <section id="productGrid" class="grid"></section>
+      <section class="collections">
+        <a class="tile" href="#productGrid" data-category="Audio">
+          <div
+            class="tile-media"
+            style="
+              background-image: url('https://i.pinimg.com/736x/57/0b/df/570bdf0d5f24df2dee1df17668b12d9b.jpg');
+            "
+          ></div>
+          <div class="tile-text">
+            <h3>Audio</h3>
+            <p>Headphones, speakers, earbuds</p>
+          </div>
+        </a>
+        <a class="tile" href="#productGrid" data-category="Wearables">
+          <div
+            class="tile-media"
+            style="
+              background-image: url('https://i.pinimg.com/1200x/40/d6/15/40d615b4d6a8613cedd894c3fbba8f87.jpg');
+            "
+          ></div>
+          <div class="tile-text">
+            <h3>Wearables</h3>
+            <p>Smartwatches, fitness trackers</p>
+          </div>
+        </a>
+        <a class="tile" href="#productGrid" data-category="Accessories">
+          <div
+            class="tile-media"
+            style="
+              background-image: url('https://picsum.photos/id/1070/1200/675');
+            "
+          ></div>
+          <div class="tile-text">
+            <h3>Accessories</h3>
+            <p>Keyboards, mice, hubs</p>
+          </div>
+        </a>
+      </section>
+      <section id="about" class="about about-split">
+        <div class="about-media" style="background-image:url('https://i.pinimg.com/736x/5f/48/87/5f48878be5dbdd10cdf01912ab37fa33.jpg')"></div>
+        <div class="content">
+          <h2>Our Approach</h2>
+          <p>We make everyday tech simple: refined design, reliable build, no noise.</p>
+          <div class="stats">
+            <div class="stat"><div class="stat-value">500+</div><div class="stat-label">Orders</div></div>
+            <div class="stat"><div class="stat-value">24/7</div><div class="stat-label">Support</div></div>
+            <div class="stat"><div class="stat-value">99.8%</div><div class="stat-label">Satisfaction</div></div>
+          </div>
+          <div class="values">
+            <div class="value">
+              <h3>Design</h3>
+              <p>Clean, useful, durable.</p>
+            </div>
+            <div class="value">
+              <h3>Reliability</h3>
+              <p>Consistent performance.</p>
+            </div>
+            <div class="value">
+              <h3>Service</h3>
+              <p>Helpful and responsive.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
+      <div class="cart-header">
+        <h2>Cart</h2>
+        <button id="cartClose" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary">
+        <div class="row">
+          <span>Subtotal</span>
+          <strong id="subtotal">$0.00</strong>
+        </div>
+        <div class="row">
+          <span>Shipping</span>
+          <span id="shipping">Calculated at checkout</span>
+        </div>
+        <div class="row total">
+          <span>Total</span>
+          <strong id="total">$0.00</strong>
+        </div>
+        <details class="checkout">
+          <summary>Checkout</summary>
+          <form id="checkoutForm" class="form">
+            <input id="name" class="input" placeholder="Full Name" required />
+            <input
+              id="email"
+              type="email"
+              class="input"
+              placeholder="Email"
+              required
+            />
+            <input
+              id="address"
+              class="input"
+              placeholder="Shipping Address"
+              required
+            />
+            <button class="primary" type="submit">Place Order</button>
+          </form>
+        </details>
+      </div>
+    </aside>
+
+    <div id="overlay" class="overlay" aria-hidden="true"></div>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> ShopLite</div>
+      <div class="muted">Demo store. No payments processed.</div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
